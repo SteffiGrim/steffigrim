@@ -2,11 +2,10 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-    <title>Páginas Web para Negocios</title>
+  <title>Páginas Web para Negocios</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-    
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, sans-serif;
@@ -48,6 +47,12 @@
       font-weight: bold;
       text-decoration: none;
       border-radius: 10px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
 
     .grid {
@@ -62,6 +67,11 @@
       padding: 20px;
       border-radius: 12px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
     }
 
     .highlight {
@@ -78,54 +88,45 @@
       font-size: 0.9em;
     }
 
+    /* ✨ ANIMACIONES */
+
     .fade-in {
       opacity: 0;
       transform: translateY(20px);
       animation: fadeIn 1s ease forwards;
     }
 
-      @keyframes fadeIn {
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
-  
-    /* Scroll animation */
+    }
+
     .hidden {
       opacity: 0;
       transform: translateY(40px);
       transition: all 0.8s ease;
     }
-    
+
     .show {
       opacity: 1;
       transform: translateY(0);
     }
   </style>
-  <script>
-  const elements = document.querySelectorAll('.hidden');
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-      }
-    });
-  });
-
-  elements.forEach(el => observer.observe(el));
-</script>
 </head>
+
 <body>
 
   <div class="container">
 
     <div class="hero">
       <h1 class="fade-in">Conseguí más clientes con una web profesional</h1>
-      <p>Diseño páginas simples, modernas y listas para que te contacten por WhatsApp.</p>
+      <p class="fade-in">
+        Diseño páginas simples, modernas y listas para que te contacten por WhatsApp.
+      </p>
 
-      <a class="btn" href="https://wa.me/5491170673186" target="_blank">
+      <a class="btn" href="https://wa.me/549XXXXXXXXXX" target="_blank">
         Hablame por WhatsApp
       </a>
 
@@ -138,8 +139,8 @@
     <p class="hidden">
       Hoy la mayoría de las personas buscan servicios en internet.
       Si tu negocio no aparece, estás perdiendo clientes todos los días.
-  </p>
-    
+    </p>
+
     <div class="grid">
       <div class="card hidden">
         <h3>Más visibilidad</h3>
@@ -157,7 +158,7 @@
       </div>
     </div>
 
-    <div class="highlight">
+    <div class="highlight hidden">
       <h2>¿Qué incluye?</h2>
       <ul>
         <li>✔ Página web lista en 48 horas</li>
@@ -167,24 +168,39 @@
       </ul>
     </div>
 
-    <h2>Sobre mí</h2>
-    <p>
+    <h2 class="hidden">Sobre mí</h2>
+    <p class="hidden">
       Soy desarrolladora y ayudo a negocios a tener presencia online sin complicaciones.
       Mi objetivo es que puedas conseguir más clientes de forma simple y rápida.
     </p>
 
-    <div class="hero">
+    <div class="hero hidden">
       <h2>¿Empezamos?</h2>
-      <a class="btn" href="https://wa.me/5491170673186" target="_blank">
+      <a class="btn" href="https://wa.me/549XXXXXXXXXX" target="_blank">
         Quiero mi página
       </a>
     </div>
 
     <footer>
-      © 2026 - Esvigi - Páginas web para negocios
+      © 2026 - ESVIGI - Páginas web para negocios
     </footer>
 
   </div>
+
+  <!-- ✨ SCRIPT ANIMACIÓN SCROLL -->
+  <script>
+    const elements = document.querySelectorAll('.hidden');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    });
+
+    elements.forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>
